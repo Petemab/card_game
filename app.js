@@ -28,6 +28,10 @@ window.addEventListener('DOMContentLoaded', function() {
   //
   // current score
 
+  // const deck = [];
+
+  // let deck;
+
   const suits = ['diamond', 'hearts', 'spades', 'clubs'];
 
   const values = [
@@ -47,8 +51,9 @@ window.addEventListener('DOMContentLoaded', function() {
   ];
 
   //create a deck of cards
+
   function createDeck() {
-    const deck = new Array();
+    deck = new Array();
 
     for (let i = 0; i < suits.length; i++) {
       for (let x = 0; x < values.length; x++) {
@@ -60,6 +65,23 @@ window.addEventListener('DOMContentLoaded', function() {
       }
     }
 
-    return deck;
+    console.log(deck);
   }
+
+  //shuffle the Deck
+
+  function shuffle() {
+    // for loop that
+    // switch the values of two random cards loads of times
+    for (let i = 0; i < 1000; i++) {
+      const card1 = Math.floor(Math.random() * deck.length);
+      const card2 = Math.floor(Math.random() * deck.length);
+      const tmp = deck[card1];
+
+      deck[card1] = deck[card2];
+      deck[card2] = tmp;
+    }
+  }
+
+  createDeck();
 });
